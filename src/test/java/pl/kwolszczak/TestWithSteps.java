@@ -1,6 +1,7 @@
 package pl.kwolszczak;
 
 import com.epam.reportportal.annotations.Step;
+import com.epam.reportportal.annotations.TestCaseId;
 import com.epam.reportportal.junit5.ReportPortalExtension;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -16,20 +17,21 @@ class TestWithSteps {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(TestWithSteps.class);
 
-   @Test
-   void orderProductsTest() {
+    @TestCaseId("TNG.1.0.1")
+    @Test
+    void orderProductsTest() {
 
-       final Integer productCount = 5;
-       final Double price = 3.0;
-       final Double totalPrice = price * productCount;
+        final Integer productCount = 5;
+        final Double price = 3.0;
+        final Double totalPrice = price * productCount;
 
-       navigateToMainPage();
-       login();
-       navigateToProductsPage();
-       addProductToCart(productCount);
-       pay(totalPrice);
-       logout();
-   }
+        navigateToMainPage();
+        login();
+        navigateToProductsPage();
+        addProductToCart(productCount);
+        pay(totalPrice);
+        logout();
+    }
 
     @Step
     public void navigateToMainPage() {
